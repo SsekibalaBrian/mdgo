@@ -49,19 +49,19 @@ func slugify(s string) string {
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Kullanım: mdgo dosyaismi.md")
+		fmt.Println("Usage: mdgo filename.md")
 		os.Exit(1)
 	}
 
 	inputFile := os.Args[1]
 
 	if !strings.HasSuffix(inputFile, ".md") {
-		log.Fatalf("Hata: Girdi dosyası .md uzantılı olmalı")
+		log.Fatalf("wrong file extension")
 	}
 
 	data, err := os.ReadFile(inputFile)
 	if err != nil {
-		log.Fatalf("Dosya okunamadı: %v", err)
+		log.Fatalf("file read error: %v", err)
 	}
 
 	md := goldmark.New(
@@ -120,7 +120,7 @@ func main() {
 
 	var out bytes.Buffer
 	if err := md.Renderer().Render(&out, data, doc); err != nil {
-		log.Fatalf("Render hatası: %v", err)
+		log.Fatalf("render error: %v", err)
 	}
 
 	finalHTML := out.String()
@@ -157,8 +157,8 @@ func main() {
 	outputPath := filepath.Join(filepath.Dir(inputFile), filepath.Base(outputFile))
 
 	if err := os.WriteFile(outputPath, []byte(fullHTML), 0644); err != nil {
-		log.Fatalf("Dosyaya yazılamadı: %v", err)
+		log.Fatalf("file write error: %v", err)
 	}
 
-	fmt.Printf("✓ HTML dosyası oluşturuldu: %s\n", outputPath)
+	fmt.Printf("✓ HTML created: %s\n", outputPath)
 }
