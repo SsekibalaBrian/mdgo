@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+/* GitHub Dark Theme - Modern */
+body {
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  color: #e6edf3;
+  background-color: #0d1117;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+/* Content Container for Centering - TÜM İÇERİK BODY İÇİNDE */
+body {
+  /* max-width: 800px; /* Bu satırı kaldırdık, çünkü tüm içeriğin genişliğini bu belirliyordu */
+  margin: 0; /* DEĞİŞİKLİK: '0 auto' yerine sadece '0' ile sola hizalamayı sağladık */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #e6edf3;
+}
+
+h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #21262d;
+}
+
+h2 {
+  font-size: 1.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #21262d;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.875em;
+}
+
+h6 {
+  font-size: 0.85em;
+  color: #7d8590;
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  max-width: 800px; /* DEĞİŞİKLİK: Paragraflar için maksimum genişlik */
+}
+
+/* Links */
+a {
+  color: #58a6ff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-left: 2em;
+  max-width: 800px; /* Liste elemanlarının da paragraflarla uyumlu görünmesi için eklendi */
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li {
+  margin-top: 0.25em;
+}
+
+li > p {
+  margin-top: 16px;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 0 0 16px 0;
+  padding: 0 1em;
+  color: #7d8590;
+  border-left: 0.25em solid #30363d;
+  max-width: 800px; /* Blockquote'lar için maksimum genişlik */
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Code */
+code,
+tt {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(110, 118, 129, 0.4);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #161b22;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  max-width: none; /* DEĞİŞİKLİK: Kod blokları için sınırsız genişlik */
+  width: auto; /* Genişliği içeriğe göre ayarla, taşarsa scroll çıksın */
+}
+
+pre code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  background-color: transparent;
+  border-radius: 0;
+  word-break: normal;
+  white-space: pre;
+  border: 0;
+  display: inline;
+  max-width: none; /* DEĞİŞİKLİK: Kod içeriği için sınırsız genişlik */
+  overflow: visible;
+  line-height: inherit;
+}
+
+/* Tables */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: none; /* DEĞİŞİKLİK: Tablolar için sınırsız genişlik (eski 100% ayarını geçersiz kıldı) */
+  overflow: auto;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+table th,
+table td {
+  padding: 6px 13px;
+  border: 1px solid #30363d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+}
+
+table th {
+  font-weight: 600;
+  background-color: #161b22;
+}
+
+table tr {
+  background-color: #0d1117;
+  border-top: 1px solid #21262d;
+}
+
+table tr:nth-child(2n) {
+  background-color: #161b22;
+}
+
+/* Horizontal Rule */
+hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #21262d;
+  border: 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #0d1117;
+  border-style: none;
+}
+
+/* Bold & Italic */
+strong,
+b {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+/* Keyboard */
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  line-height: 10px;
+  color: #e6edf3;
+  vertical-align: middle;
+  background-color: #161b22;
+  border: solid 1px rgba(110, 118, 129, 0.4);
+  border-bottom-color: rgba(110, 118, 129, 0.4);
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 rgba(110, 118, 129, 0.4);
+}
+
+/* Task Lists */
+.task-list-item {
+  list-style-type: none;
+}
+
+.task-list-item-checkbox {
+  margin: 0 0.2em 0.25em -1.4em;
+  vertical-align: middle;
+}
+
+/* Details/Summary */
+details {
+  display: block;
+  margin-bottom: 16px;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* Alerts */
+.markdown-alert {
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: 0.25em solid #30363d;
+  max-width: 800px; /* Alertler için maksimum genişlik */
+}
+
+.markdown-alert-note {
+  border-left-color: #1f6feb;
+}
+
+.markdown-alert-tip {
+  border-left-color: #238636;
+}
+
+.markdown-alert-important {
+  border-left-color: #8957e5;
+}
+
+.markdown-alert-warning {
+  border-left-color: #9e6a03;
+}
+
+.markdown-alert-caution {
+  border-left-color: #da3633;
+}
+
+/* First & Last Child */
+ *:first-child {
+  margin-top: 0 !important;
+}
+
+ *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Focus Styles */
+a:focus,
+[role="button"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: 2px solid #1f6feb;
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+a:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+input[type="radio"]:focus:not(:focus-visible),
+input[type="checkbox"]:focus:not(:focus-visible) {
+  outline: solid 1px transparent;
+}
+
+
+/* ============================================ */
+/* CHROMA SYNTAX HIGHLIGHTING - GitHub Dark    */
+/* ============================================ */
+
+/* Background */
+.chroma {
+  background-color: #161b22;
+  max-width: none; /* DEĞİŞİKLİK: Kod blokları için sınırsız genişlik */
+}
+
+/* Error */
+.chroma .err {
+  color: #f85149;
+}
+
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  overflow: auto;
+  display: block;
+}
+
+/* LineHighlight */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: #1c2128;
+}
+
+/* LineNumbersTable */
+.chroma .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #6e7681;
+}
+
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #6e7681;
+}
+
+/* Keyword */
+.chroma .k {
+  color: #ff7b72;
+}
+
+/* KeywordConstant */
+.chroma .kc {
+  color: #79c0ff;
+}
+
+/* KeywordDeclaration */
+.chroma .kd {
+  color: #ff7b72;
+}
+
+/* KeywordNamespace */
+.chroma .kn {
+  color: #ff7b72;
+}
+
+/* KeywordPseudo */
+.chroma .kp {
+  color: #79c0ff;
+}
+
+/* KeywordReserved */
+.chroma .kr {
+  color: #ff7b72;
+}
+
+/* KeywordType */
+.chroma .kt {
+  color: #ff7b72;
+}
+
+/* Name */
+.chroma .n {
+  color: #e6edf3;
+}
+
+/* NameAttribute */
+.chroma .na {
+  color: #e6edf3;
+}
+
+/* NameBuiltin */
+.chroma .nb {
+  color: #ffa657;
+}
+
+/* NameBuiltinPseudo */
+.chroma .bp {
+  color: #79c0ff;
+}
+
+/* NameClass */
+.chroma .nc {
+  color: #f0883e;
+  font-weight: 600;
+}
+
+/* NameConstant */
+.chroma .no {
+  color: #79c0ff;
+  font-weight: 600;
+}
+
+/* NameDecorator */
+.chroma .nd {
+  color: #d2a8ff;
+  font-weight: 600;
+}
+
+/* NameEntity */
+.chroma .ni {
+  color: #ffa657;
+}
+
+/* NameException */
+.chroma .ne {
+  color: #f0883e;
+  font-weight: 600;
+}
+
+/* NameFunction */
+.chroma .nf {
+  color: #d2a8ff;
+  font-weight: 600;
+}
+
+/* NameFunctionMagic */
+.chroma .fm {
+  color: #d2a8ff;
+}
+
+/* NameLabel */
+.chroma .nl {
+  color: #79c0ff;
+  font-weight: 600;
+}
+
+/* NameNamespace */
+.chroma .nn {
+  color: #ff7b72;
+}
+
+/* NameOther */
+.chroma .nx {
+  color: #e6edf3;
+}
+
+/* NameProperty */
+.chroma .py {
+  color: #79c0ff;
+}
+
+/* NameTag */
+.chroma .nt {
+  color: #7ee787;
+}
+
+/* NameVariable */
+.chroma .nv {
+  color: #79c0ff;
+}
+
+/* NameVariableClass */
+.chroma .vc {
+  color: #79c0ff;
+}
+
+/* NameVariableGlobal */
+.chroma .vg {
+  color: #79c0ff;
+}
+
+/* NameVariableInstance */
+.chroma .vi {
+  color: #79c0ff;
+}
+
+/* NameVariableMagic */
+.chroma .vm {
+  color: #79c0ff;
+}
+
+/* Literal */
+.chroma .l {
+  color: #79c0ff;
+}
+
+/* LiteralDate */
+.chroma .ld {
+  color: #a5d6ff;
+}
+
+/* LiteralString */
+.chroma .s {
+  color: #a5d6ff;
+}
+
+/* LiteralStringAffix */
+.chroma .sa {
+  color: #a5d6ff;
+}
+
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: #a5d6ff;
+}
+
+/* LiteralStringChar */
+.chroma .sc {
+  color: #a5d6ff;
+}
+
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: #a5d6ff;
+}
+
+/* LiteralStringDoc */
+.chroma .sd {
+  color: #a5d6ff;
+}
+
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: #a5d6ff;
+}
+
+/* LiteralStringEscape */
+.chroma .se {
+  color: #79c0ff;
+}
+
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: #a5d6ff;
+}
+
+/* LiteralStringInterpol */
+.chroma .si {
+  color: #a5d6ff;
+}
+
+/* LiteralStringOther */
+.chroma .sx {
+  color: #a5d6ff;
+}
+
+/* LiteralStringRegex */
+.chroma .sr {
+  color: #7ee787;
+}
+
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: #a5d6ff;
+}
+
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: #a5d6ff;
+}
+
+/* LiteralNumber */
+.chroma .m {
+  color: #79c0ff;
+}
+
+/* LiteralNumberBin */
+.chroma .mb {
+  color: #79c0ff;
+}
+
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: #79c0ff;
+}
+
+/* LiteralNumberHex */
+.chroma .mh {
+  color: #79c0ff;
+}
+
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: #79c0ff;
+}
+
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: #79c0ff;
+}
+
+/* LiteralNumberOct */
+.chroma .mo {
+  color: #79c0ff;
+}
+
+/* Operator */
+.chroma .o {
+  color: #ff7b72;
+  font-weight: 600;
+}
+
+/* OperatorWord */
+.chroma .ow {
+  color: #ff7b72;
+  font-weight: 600;
+}
+
+/* Punctuation */
+.chroma .p {
+  color: #e6edf3;
+}
+
+/* Comment */
+.chroma .c {
+  color: #8b949e;
+  font-style: italic;
+}
+
+/* CommentHashbang */
+.chroma .ch {
+  color: #8b949e;
+  font-style: italic;
+}
+
+/* CommentMultiline */
+.chroma .cm {
+  color: #8b949e;
+  font-style: italic;
+}
+
+/* CommentSingle */
+.chroma .c1 {
+  color: #8b949e;
+  font-style: italic;
+}
+
+/* CommentSpecial */
+.chroma .cs {
+  color: #8b949e;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* CommentPreproc */
+.chroma .cp {
+  color: #8b949e;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: #8b949e;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Generic */
+.chroma .g {
+  color: #e6edf3;
+}
+
+/* GenericDeleted */
+.chroma .gd {
+  color: #ffa198;
+  background-color: #490202;
+}
+
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+
+/* GenericError */
+.chroma .gr {
+  color: #f85149;
+}
+
+/* GenericHeading */
+.chroma .gh {
+  color: #79c0ff;
+  font-weight: 600;
+}
+
+/* GenericInserted */
+.chroma .gi {
+  color: #56d364;
+  background-color: #0f1419;
+}
+
+/* GenericOutput */
+.chroma .go {
+  color: #8b949e;
+}
+
+/* GenericPrompt */
+.chroma .gp {
+  color: #8b949e;
+}
+
+/* GenericStrong */
+.chroma .gs {
+  font-weight: 600;
+}
+
+/* GenericSubheading */
+.chroma .gu {
+  color: #79c0ff;
+}
+
+/* GenericTraceback */
+.chroma .gt {
+  color: #ff7b72;
+}
+
+/* GenericUnderline */
+.chroma .gl {
+  text-decoration: underline;
+}
+
+/* TextWhitespace */
+.chroma .w {
+  color: #6e7681;
+}
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+<ul>
+<li><a href="#markdown-syntax-guide">Markdown syntax guide</a>
+<ul>
+<li><a href="#headers">Headers</a></li>
+</ul>
+</li>
+<li><a href="#this-is-a-heading-h1">This is a Heading h1</a>
+<ul>
+<li><a href="#this-is-a-heading-h2">This is a Heading h2</a>
+<ul>
+<li><a href="#this-is-a-heading-h3">This is a Heading h3</a></li>
+</ul>
+</li>
+<li><a href="#emphasis">Emphasis</a></li>
+<li><a href="#lists">Lists</a>
+<ul>
+<li><a href="#unordered">Unordered</a></li>
+<li><a href="#ordered">Ordered</a></li>
+</ul>
+</li>
+<li><a href="#images">Images</a></li>
+<li><a href="#links">Links</a></li>
+<li><a href="#blockquotes">Blockquotes</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#blocks-of-code">Blocks of code</a></li>
+<li><a href="#inline-code">Inline code</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="markdown-syntax-guide">Markdown syntax guide</h1>
+<h2 id="headers">Headers</h2>
+<h1 id="this-is-a-heading-h1">This is a Heading h1</h1>
+<h2 id="this-is-a-heading-h2">This is a Heading h2</h2>
+<h3 id="this-is-a-heading-h3">This is a Heading h3</h3>
+<h2 id="emphasis">Emphasis</h2>
+<p><em>This text will be italic</em><br>
+<em>This will also be italic</em></p>
+<p><strong>This text will be bold</strong><br>
+<strong>This will also be bold</strong></p>
+<p><em>You <strong>can</strong> combine them</em></p>
+<h2 id="lists">Lists</h2>
+<h3 id="unordered">Unordered</h3>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 2a</li>
+<li>Item 2b
+<ul>
+<li>Item 3a</li>
+<li>Item 3b</li>
+</ul>
+</li>
+</ul>
+<h3 id="ordered">Ordered</h3>
+<ol>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3
+<ol>
+<li>Item 3a</li>
+<li>Item 3b</li>
+</ol>
+</li>
+</ol>
+<h2 id="images">Images</h2>
+<p><img src="/image/sample.webp" alt="This is an alt text." title="This is a sample image."></p>
+<h2 id="links">Links</h2>
+<p>You may be using <a href="https://markdownlivepreview.com/">Markdown Live Preview</a>.</p>
+<h2 id="blockquotes">Blockquotes</h2>
+<blockquote>
+<p>Markdown is a lightweight markup language with plain-text-formatting syntax, created in 2004 by John Gruber with Aaron Swartz.</p>
+<blockquote>
+<p>Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.</p>
+</blockquote>
+</blockquote>
+<h2 id="tables">Tables</h2>
+<table>
+<thead>
+<tr>
+<th>Left columns</th>
+<th style="text-align:center">Right columns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left foo</td>
+<td style="text-align:center">right foo</td>
+</tr>
+<tr>
+<td>left bar</td>
+<td style="text-align:center">right bar</td>
+</tr>
+<tr>
+<td>left baz</td>
+<td style="text-align:center">right baz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="blocks-of-code">Blocks of code</h2>
+<pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">slugify</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">TrimSpace</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Builder</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">switch</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="nx">unicode</span><span class="p">.</span><span class="nf">IsLetter</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span><span class="w"> </span><span class="nx">unicode</span><span class="p">.</span><span class="nf">IsDigit</span><span class="p">(</span><span class="nx">r</span><span class="p">):</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nx">b</span><span class="p">.</span><span class="nf">WriteRune</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="nx">unicode</span><span class="p">.</span><span class="nf">IsSpace</span><span class="p">(</span><span class="nx">r</span><span class="p">):</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nx">b</span><span class="p">.</span><span class="nf">WriteRune</span><span class="p">(</span><span class="sc">&#39;-&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;-&#39;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nx">b</span><span class="p">.</span><span class="nf">WriteRune</span><span class="p">(</span><span class="sc">&#39;-&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">out</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nf">String</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;--&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;-&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;--&#34;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;--&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;-&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">out</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span></code></pre><h2 id="inline-code">Inline code</h2>
+<p>This web site is using <code>markedjs/marked</code>.</p>
+
+    </div>
+</body>
+</html>
